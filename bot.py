@@ -7,6 +7,7 @@ from discord.ext import commands
 from discord.utils import get
 
 
+bot_token = os.environ['BOT_TOKEN']
 
 Client = discord.Client() #Initialise Client 
 client = commands.Bot(command_prefix = "?") #Initialise client bot
