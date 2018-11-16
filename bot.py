@@ -21,11 +21,11 @@ async def on_ready():
     await client.change_presence(game=discord.Game(name='Protecting Servers'))
 
 @client.command(pass_context=True)
-    async def clear(ctx, amount=1):
-        channel = ctx.message.channel
-        messages = []
-        async for message in client.logs_from(channel, limit=int(amount)):
-            messages.append(message)
+async def clear(ctx, amount=1):
+    channel = ctx.message.channel
+    messages = []
+    async for message in client.logs_from(channel, limit=int(amount)):
+        messages.append(message)
         await client.delete_messages(messages)
         await client.say("Messages have been cleared.")
     
