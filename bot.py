@@ -13,12 +13,21 @@ bot_token = os.environ['BOT_TOKEN']
 Client = discord.Client() #Initialise Client 
 client = commands.Bot(command_prefix = "?") #Initialise client bot
 
-
+    
 @client.event 
 async def on_ready():    
     print("Bot is online and connected to Discord") #This will be called when the bot connects to the server
     print("Noxu is now active.")
     await client.change_presence(game=discord.Game(name='Protecting Servers'))
+
+@client.command(pass_context=True)
+    async def clear(ctx, amount=1):
+        channel = ctx.message.channel
+        messages = []
+        async for message in client.logs_from(channel, limit=int(amount)):
+            messages.append(message)
+        await client.delete_messages(messages)
+        await client.say("Messages have been cleared.")
     
 @client.event
 async def on_message(message):
@@ -34,6 +43,10 @@ async def on_message(message):
     if message.content.upper().startswith('!PING'):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> Pong!" % (userID) )
+        
+    if message.content.upper().startswith('!INFO'):
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> Noxu bot is created by 124964742371475458 as a personal project and a utlity and server moderation bot for the Noxu Gaming Community. Currently in alpha and not released for public servers." % (userID) )
 
     if message.content.upper().startswith('!SAY'):
         if message.author.id == "124964742371475458":
