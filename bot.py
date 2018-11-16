@@ -18,6 +18,7 @@ client = commands.Bot(command_prefix = "?") #Initialise client bot
 async def on_ready():    
     print("Bot is online and connected to Discord") #This will be called when the bot connects to the server
     print("Noxu is now active.")
+    await client.change_presence(game=discord.Game('Protecting Servers'))
     
 @client.event
 async def on_message(message):
