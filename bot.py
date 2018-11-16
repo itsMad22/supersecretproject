@@ -1,6 +1,7 @@
 import discord
 import time
 import asyncio
+import os
 
 from discord.ext.commands import Bot
 from discord.ext import commands
