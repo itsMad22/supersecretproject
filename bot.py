@@ -28,7 +28,13 @@ async def clear(ctx, amount=10):
         messages.append(message)
     await client.delete_messages(messages)
     await client.send_message(message.channel, "Messages have been cleared.")
+
     
+@client.event
+async def on_member_join(member):
+    channel = member.server.get_channel("513337256950628382")
+    await client.send_message(channel, member +" has just joined the server!")
+   
 @client.event
 async def on_message(message):
     #if message.content == "cookie":
