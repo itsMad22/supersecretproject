@@ -33,7 +33,8 @@ async def clear(ctx, amount=10):
 @client.event
 async def on_member_join(member):
     channel = member.server.get_channel("513337256950628382")
-    await client.send_message(channel, "@%s has just joined the server!" % (member) )
+    userID = member.id
+    await client.send_message(channel, "<@%s> has just joined the server!" % (userID) )
    
 @client.event
 async def on_message(message):
