@@ -61,12 +61,12 @@ async def on_message(message):
             await client.delete_message(message)
             await client.delete_message(tempc)
             
-    if message.content.upper().startswith('?PLAY'):
-        if message.channel != 510207536926949376:
-            await client.delete_message(message)
-            tempc = await client.send_message(message.channel, "<@%s> Please use all dyno commands in #bot-spam, not here! Than" % (userID) )
-            time.sleep(3)
-            await client.delete_message(tempc)
+#    if message.content.upper().startswith('?PLAY'):
+#        if message.channel != 510207536926949376:
+#            await client.delete_message(message)
+#            tempc = await client.send_message(message.channel, "<@%s> Please use all dyno commands in #bot-spam, not here! Than" % (userID) )
+#            time.sleep(3)
+#            await client.delete_message(tempc)
         
     if message.content.upper().startswith('!SC'):
             if "506131078017318913" in [role.id for role in message.author.roles]:
