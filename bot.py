@@ -50,7 +50,7 @@ async def on_message(message):
     
     if message.content.upper().startswith('!PING'):
         userID = message.author.id
-        await client.send_message(message.channel, "<@%s> Pong!" % (userID) )
+        await client.send_message(message.channel, "<@%s> Pong!"+  `${Date.now() - message.createdTimestamp}` + ' ms`' % (userID) )
         
     if message.content.upper().startswith('!INFO'):
         userID = message.author.id
